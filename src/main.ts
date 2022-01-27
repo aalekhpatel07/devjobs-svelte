@@ -1,10 +1,7 @@
-import App from './App.svelte';
+import Base from './pages/Base.svelte';
 
-const app = new App({
+const app = new Base({
 	target: document.body,
-	props: {
-		name: 'world'
-	}
 });
 
 export default app;
