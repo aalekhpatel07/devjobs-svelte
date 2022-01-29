@@ -1,7 +1,7 @@
-import Base from './pages/Base.svelte';
+import Base from "./pages/Base.svelte";
 
 const app = new Base({
-	target: document.body,
+  target: document.body,
 });
 
 export default app;

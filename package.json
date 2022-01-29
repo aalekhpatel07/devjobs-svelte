@@ -12,7 +12,12 @@
   },
   "jest": {
     "transform": {
-      "^.+\\.svelte$": ["svelte-jester", { "preprocess": true }],
+      "^.+\\.svelte$": [
+        "svelte-jester",
+        {
+          "preprocess": true
+        }
+      ],
       "^.+\\.tsx?$": "ts-jest",
       "^.+\\.jsx?$": "babel-jest"
     },
@@ -45,8 +50,8 @@
     "svelte-jester": "*",
     "@types/jest": "*",
     "babel-jest": "*",
-    "@babel/preset-env": "*"
-
+    "@babel/preset-env": "*",
+    "rollup-plugin-dev": "*"
   },
   "dependencies": {}
 }

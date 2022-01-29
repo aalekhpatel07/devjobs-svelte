@@ -1,4 +1,6 @@
 <script lang="ts">
+    import { fade } from 'svelte/transition';
+
 	import Job from './Job.svelte';
 	import type { Job as JobType } from '../types/job';
 
@@ -8,8 +10,8 @@
 
 <ul class="mx-auto grid grid-cols-auto px-4 pt-16 pb-8 gap-16 justify-items-center">
     {#each jobs as job (job.id)}
-        <li>
-            <Job {job} />
+        <li transition:fade|local="{{ duration: 200 }}">
+            <Job {job}/>
         </li>
     {/each}
 </ul>

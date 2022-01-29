@@ -14,7 +14,7 @@
         class="w-16 h-16 rounded-2xl flex items-center justify-center -mt-8"
         style="background-color: {job.logoBackground};"
     >
-        <img class="object-contain" src={job.logo} alt="Logo for {job.company}">    
+        <img loading="lazy" class="object-contain" src={job.logo} alt="Logo for {job.company}">    
     </div>
     <div class="py-2 space-y-2 text-dark-grey mt-2 dark:text-gray-400">
         <p class="text-sm">
