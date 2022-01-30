@@ -7,7 +7,7 @@ import {
 } from "svelte/store";
 import type { Job } from "./types/job";
 
-export const meilisearchBaseURL = "/meilisearch";
+export const meilisearchBaseURL = "/search";
 const meilisearchURL = meilisearchBaseURL + "/indexes/jobs/search";
 
 export const currentMeilisearchIndexUID: Writable<number> = writable(0);
