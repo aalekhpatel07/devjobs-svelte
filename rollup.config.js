@@ -78,7 +78,7 @@ export default {
         dirs: ["public"],
         proxy: [
           {
-            from: "/meilisearch",
+            from: "/search",
             to: "http://localhost:7700",
           },
         ],

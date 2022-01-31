@@ -1,8 +1,8 @@
 <script lang="ts">
 	import JobContainer from '../components/JobContainer.svelte';
 	import Searchbar from '../components/Searchbar.svelte';
+	import Navbar from '../components/Navbar.svelte';
 	import type { Job } from '../types/job';
-
 	import { searchResults } from '../store';
 
 	let jobHits: Job[] = [];
@@ -14,9 +14,10 @@
 		;
 	});
 
-
 </script>
-<main class="mt-4">
-	<Searchbar />
+
+<main class="mt-0">
+	<Navbar />
+	<Searchbar keyPressFocus={["Control", "m"]}/>
 	<JobContainer jobs={jobHits}/>
 </main>

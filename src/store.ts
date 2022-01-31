@@ -5,6 +5,7 @@ import {
   type Writable,
   derived,
 } from "svelte/store";
+
 import type { Job } from "./types/job";
 
 export const meilisearchBaseURL = "/search";

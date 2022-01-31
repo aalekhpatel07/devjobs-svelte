@@ -1,3 +1,4 @@
+<KeyPress keys={keyPressFocus} on:key-pressed={focus}/>
 <header class="mx-auto w-64 h-12 rounded-lg shadow-2xl sm:w-3/5">
     <form action=false role="search" novalidate class="relative flex items-center w-full h-full">
         <div class="w-10 absolute bg-transparent left-0 h-full flex items-center justify-center rounded-l-lg text-gray-400 dark:text-light-grey dark:text-gray-300 sm:w-16">
@@ -14,6 +15,7 @@
             class="w-full h-full rounded-r-lg rounded-l-lg pl-10 pr-12 sm:pl-14 sm:pr-20 placeholder:italic placeholder:text-gray-400 focus:outline-none focus:outline-1 focus:ring-midnight dark:focus:outline-white dark:bg-very-dark-blue dark:text-gray-300 text-sm transition-transform duration-800"
             placeholder="Search jobs..."
             bind:value={$searchQuery}
+            bind:this={input}
         />
         <button 
             type="button" 
@@ -29,4 +31,11 @@
     <p class="mx-auto w-64 text-xs text-gray-500 italic sm:w-3/5 mt-2">Example: Frontend Developer, Blogr, United Kingdom, ...</p>
 <script lang="ts">
     import { searchQuery } from '../store';
+    import KeyPress from './KeyPress.svelte';
+    export let keyPressFocus: string[];
+    let input;
+
+    export function focus() {
+        input.focus();
+    }
 </script>
