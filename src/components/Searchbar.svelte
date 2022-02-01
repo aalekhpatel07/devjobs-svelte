@@ -1,6 +1,6 @@
 <KeyPress keys={keyPressFocus} on:key-pressed={focus}/>
 <header class="mx-auto w-64 h-12 rounded-lg shadow-2xl sm:w-3/5">
-    <form action=false role="search" novalidate class="relative flex items-center w-full h-full">
+    <form on:submit|preventDefault role="search" novalidate class="relative flex items-center w-full h-full">
         <div class="w-10 absolute bg-transparent left-0 h-full flex items-center justify-center rounded-l-lg text-gray-400 dark:text-light-grey dark:text-gray-300 sm:w-16">
             <label class="w-4 rounded-l-lg" for="searchInput">
                 <span class="sr-only">Search</span>
