@@ -6,6 +6,7 @@
 	<meta name="description" content="Platform for developer job postings.">
 	<meta name="keywords" content="Jobs, Developer, Platform, Search">
 	<meta name="author" content="Aalekh Patel">
+	<meta http-equiv="Access-Control-Allow-Origin" content="*">
 
 	<title>Devjobs</title>
 
@@ -19,7 +20,18 @@
 	<script src="https://cdn.tailwindcss.com"></script>
 	<!-- <script src="https://unpkg.com/@themesberg/flowbite@1.3.0/dist/flowbite.bundle.js"></script> -->
 	<script>
+		// TailwindCSS dark mode universal setting.
+		if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+			document.documentElement.classList.add('dark')
+		} else {
+			document.documentElement.classList.remove('dark')
+		}
+
+		
+	</script>
+	<script>
 		tailwind.config = {
+			darkMode: 'class',
 			theme: {
 				extend: {
 					colors: {
@@ -61,6 +73,10 @@
 						'h4': '0.875rem',
 						'body': '1rem',
 					},
+					backgroundImage: {
+						'pattern-header-desktop': 'url("./assets/home/bg-pattern-header-desktop.svg")',
+						'pattern-header-mobile': 'url("./assets/home/bg-pattern-header-mobile.svg")',
+					}
 				}
 			}
 		}
