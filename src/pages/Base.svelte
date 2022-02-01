@@ -15,10 +15,7 @@
 
 </script>
 
-<main class="mt-0">
-	<Navbar />
-	<div class="-mt-6">
-		<Searchbar keyPressFocus={["Control", "m"]}/>
-	</div>
-	<JobContainer jobs={jobHits}/>
-</main>
+<div class="-mt-6">
+	<Searchbar keyPressFocus={["Control", "m"]}/>
+</div>
+<JobContainer jobs={jobHits}/>

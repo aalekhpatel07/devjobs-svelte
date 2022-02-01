@@ -1,6 +1,6 @@
-import Base from "./pages/Base.svelte";
+import App from "./pages/App.svelte";
 
-const app = new Base({
+const app = new App({
   target: document.body,
 });
 

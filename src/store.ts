@@ -34,6 +34,15 @@ export const searchResults: Readable<Promise<Job[]>> = derived(
   }
 );
 
+
+export const getJob = async (id: number): Promise<Job> => {
+  const response = await fetch(
+    `${meilisearchBaseURL}/indexes/jobs/documents/${id}`
+  );
+  const job = await response.json();
+  return job;
+};
+
 export const _job: Job = {
   id: 1,
   company: "Scoot",

@@ -16,6 +16,8 @@
             placeholder="Search jobs..."
             bind:value={$searchQuery}
             bind:this={input}
+            aria-keyshortcuts="Control+m"
+            autocomplete="false"
         />
         <button 
             type="button" 

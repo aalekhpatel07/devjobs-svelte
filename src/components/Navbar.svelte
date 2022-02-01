@@ -1,5 +1,6 @@
 <nav 
     class="flex justify-between items-start py-4 h-32 z-10 bg-pattern-header-mobile md:bg-pattern-header-desktop bg-cover"
+    aria-label="Main navigation"
 >
     <div class="w-28 text-center items-center flex text-white ml-8 mt-4">
         <svg 
