@@ -11,13 +11,14 @@
 		results
 		.then(res => jobHits = res)
 		.catch(err => console.error(err));
-		;
 	});
 
 </script>
 
 <main class="mt-0">
 	<Navbar />
-	<Searchbar keyPressFocus={["Control", "m"]}/>
+	<div class="-mt-6">
+		<Searchbar keyPressFocus={["Control", "m"]}/>
+	</div>
 	<JobContainer jobs={jobHits}/>
 </main>
