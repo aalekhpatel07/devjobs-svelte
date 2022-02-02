@@ -33,7 +33,7 @@
     <p class="mx-auto w-64 text-xs text-gray-500 italic sm:w-3/5 mt-2">Example: Frontend Developer, Blogr, United Kingdom, ...</p>
 <script lang="ts">
     import { searchQuery } from '../store';
-    import KeyPress from './KeyPress.svelte';
+    import KeyPress from './utils/KeyPress.svelte';
     export let keyPressFocus: string[];
     let input;
 

@@ -1,6 +1,6 @@
 <script lang="ts">
     import { createEventDispatcher, onMount } from 'svelte';
-	import { hotKeyMap, pressedKeys } from '../stores/eventBus';
+	import { hotKeyMap, pressedKeys } from '../../stores/eventBus';
 
     export let keys: string[];
 
