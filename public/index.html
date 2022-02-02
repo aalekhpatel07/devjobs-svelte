@@ -17,17 +17,39 @@
 	<script defer src='/build/bundle.js'></script>
 
 	<!-- <link rel="stylesheet" href="https://unpkg.com/@themesberg/flowbite@1.3.0/dist/flowbite.min.css"/> -->
-	<script src="https://cdn.tailwindcss.com"></script>
+	<script src="https://cdn.tailwindcss.com?plugins=typography,aspect-ratio,line-clamp"></script>
 	<!-- <script src="https://unpkg.com/@themesberg/flowbite@1.3.0/dist/flowbite.bundle.js"></script> -->
 	<script>
 		// TailwindCSS dark mode universal setting.
-		if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-			document.documentElement.classList.add('dark')
-		} else {
-			document.documentElement.classList.remove('dark')
+		window.onload = () => {
+			setupThemePreference();
+		}
+		
+		function setupThemePreference() {
+
+			// First check if a theme preference set in their system.
+			if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+				document.body.classList.add('dark');
+				localStorage.setItem('theme', 'dark');
+			} else if (window.matchMedia('(prefers-color-scheme: light)').matches) {
+				document.body.classList.add('light');
+				localStorage.setItem('theme', 'light');
+
+			// If no system-wide preference is set, 
+			// check if a theme preference set in the localStorage.
+			} else if (localStorage.getItem('theme') === 'dark') {
+				document.body.classList.add('dark');
+			} else if (localStorage.getItem('theme') === 'light') {
+				document.body.classList.add('light');
+			}
+			
+			// No particular preference is set. Assign dark mode in that case.
+			else {
+				document.body.classList.add('dark');
+				localStorage.setItem('theme', 'dark');
+			}
 		}
 
-		
 	</script>
 	<script>
 		tailwind.config = {
@@ -36,8 +58,10 @@
 				extend: {
 					colors: {
 						violet: '#5964e0',
-						'light-violet': '#939bf4',
+						'transparent-violet': 'rgba(89,100,224,0.1)',
+						'transparent-violet-dark': 'rgba(89,100,224,0.351)',
 						'very-dark-blue': '#19202d',
+						'light-violet': '#939bf4',
 						midnight: '#121721',
 						white: '#ffffff',
 						'light-grey': '#f4f6f8',
