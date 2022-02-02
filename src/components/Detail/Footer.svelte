@@ -5,7 +5,7 @@
 
 </script>
 <footer class="flex bg-white dark:bg-very-dark-blue">
-    <div class="flex w-full sm:max-w-4xl text-center h-full py-6 sm:mx-auto sm:justify-around sm:items-center">
+    <div class="flex w-full xs:max-w-4xl text-center h-full py-6 xs:mx-auto xs:justify-around xs:items-center">
         <div class="hidden sm:flex sm:flex-col sm:items-start sm:justify-center sm:mx-auto space-y-2">
             <h4 class="text-h3 text-very-dark-blue dark:text-white font-bold">
                 {job.position}

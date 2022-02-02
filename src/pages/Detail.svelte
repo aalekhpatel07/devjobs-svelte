@@ -15,7 +15,7 @@
 {#await getJob(jobId)}
     We waiting for the job.
 {:then job}
-    <div class="mx-8 w-auto sm:max-w-4xl sm:mx-auto">
+    <div class="mx-8 w-auto xs:max-w-4xl xs:mx-auto">
         <div class="-mt-6">
             <Top job={job} />
         </div>
