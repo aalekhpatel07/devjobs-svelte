@@ -7,6 +7,7 @@ import sveltePreprocess from 'svelte-preprocess';
 import typescript from '@rollup/plugin-typescript';
 import css from 'rollup-plugin-css-only';
 import dev from "rollup-plugin-dev";
+import replace from "@rollup/plugin-replace";
 
 const production = !process.env.ROLLUP_WATCH;
 
@@ -44,6 +45,18 @@ export default {
     file: "public/build/bundle.js",
   },
   plugins: [
+    replace({
+      preventAssignment: true,
+      values: {
+        "process.env.NODE_ENV": JSON.stringify(
+          production ? '"production"' : "development"
+        ),
+        "process.env.BUILD_TIME": JSON.stringify(new Date().toISOString()),
+        "process.env.SEARCH_API_KEY":
+          "5tu8cWc43e59e7621c914382294c1f90b15c00224e53c178eab59912927e6ac366780c2d", // MeiliSearch API key with read-only access.
+      },
+      delimiters: ["", ""],
+    }),
     svelte({
       preprocess: sveltePreprocess({ sourceMap: !production }),
       compilerOptions: {
@@ -79,7 +92,7 @@ export default {
         proxy: [
           {
             from: "/search",
-            to: "http://localhost:7700",
+            to: "http://localhost:7700/",
           },
         ],
         host: "0.0.0.0",
