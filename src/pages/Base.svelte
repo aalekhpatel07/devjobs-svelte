@@ -1,9 +1,9 @@
 <script lang="ts">
 	import JobContainer from '../components/JobContainer.svelte';
 	import Searchbar from '../components/Searchbar.svelte';
-	import Navbar from '../components/Navbar.svelte';
 	import type { Job } from '../types/job';
-	import { searchResults } from '../store';
+	import { searchResults } from '../stores/job';
+
 
 	let jobHits: Job[] = [];
 
