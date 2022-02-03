@@ -11,13 +11,46 @@ import type { Job } from "../types/job";
 export const meilisearchBaseURL = "/search";
 const meilisearchURL = meilisearchBaseURL + "/indexes/jobs/search";
 
-export const getJob = async (id: number): Promise<Job> => {
+
+export const searchQuery: Writable<string> = writable("");
+export const searchResults: Readable<Promise<Job[]>> = derived(
+  searchQuery,
+  async ($query) => {
+    return await search($query.toLowerCase());
+  }
+);
+
+export async function getJob(id: number): Promise<Job> {
   const response = await fetch(
-    `${meilisearchBaseURL}/indexes/jobs/documents/${id}`
+    `${meilisearchBaseURL}/indexes/jobs/documents/${id}`,
+    {
+      headers: {
+        Authorization: "Bearer process.env.SEARCH_API_KEY",
+      },
+    }
   );
   const job = await response.json();
   return job;
-};
+}
+
+export async function search(query: string): Promise<Job[]> {
+  const response = await fetch(meilisearchURL, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: "Bearer process.env.SEARCH_API_KEY",
+    },
+    body: JSON.stringify({
+      attributesToHighlight: ["*"],
+      limit: 50,
+      q: query,
+    }),
+  });
+  const results = await response.json();
+  return results.hits;
+}
+
+
 
 export const _job: Job = {
   id: 1,
