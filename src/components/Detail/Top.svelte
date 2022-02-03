@@ -16,7 +16,7 @@
         <h2 class="text-h2 font-bold text-very-dark-blue dark:text-white ">{job.company}</h2>
         <a class="text-h4 text-dark-grey " href={job.website} rel="external">{job.website}</a>
     </div>
-    <a href="{job.website}" class="mt-4 mb-8 rounded-md bg-transparent-violet sm:m-0 sm:mr-8 px-4 py-3 text-violet dark:text-white font-bold hover:bg-transparent-violet-dark w-40" rel="external">
+    <a href="{job.website}" class="mt-4 mb-8 rounded-md bg-transparent-violet sm:m-0 sm:mr-8 px-4 py-3 text-violet dark:text-white font-bold hover:bg-transparent-violet-dark w-40 text-center" rel="external">
         Company Site
     </a>
 </div>
