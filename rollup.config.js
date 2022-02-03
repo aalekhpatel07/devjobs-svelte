@@ -39,7 +39,7 @@ function serve() {
 export default {
   input: "src/main.ts",
   output: {
-    sourcemap: true,
+    sourcemap: !production,
     format: "iife",
     name: "app",
     file: "public/build/bundle.js",
@@ -58,10 +58,17 @@ export default {
       delimiters: ["", ""],
     }),
     svelte({
-      preprocess: sveltePreprocess({ sourceMap: !production }),
+      preprocess: sveltePreprocess({
+        sourceMap: !production,
+        postcss: {
+          plugins: [require("tailwindcss"), require("autoprefixer")],
+        },
+      }),
       compilerOptions: {
         // enable run-time checks when not in production
         dev: !production,
+        sourcemap: !production,
+        enableSourcemap: !production,
       },
     }),
     // we'll extract any component CSS out into
