@@ -17,7 +17,7 @@
             type="text" 
             name="searchInput" 
             class="w-full h-full rounded-r-lg rounded-l-lg pl-10 pr-12 sm:pl-14 sm:pr-20 placeholder:italic placeholder:text-gray-400 focus:outline-none focus:outline-1 focus:ring-midnight dark:focus:outline-white dark:bg-very-dark-blue dark:text-gray-300 text-sm transition-transform duration-800"
-            placeholder='Search jobs... (Press "Ctrl+m" to focus)'
+            placeholder='Search jobs...'
             bind:value={$searchQuery}
             bind:this={input}
             aria-keyshortcuts="Control+m"
