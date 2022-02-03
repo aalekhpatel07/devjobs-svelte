@@ -2,10 +2,14 @@
 <header class="mx-auto w-64 h-12 rounded-lg shadow-2xl sm:w-3/5">
     <form on:submit|preventDefault role="search" novalidate class="relative flex items-center w-full h-full">
         <div class="w-10 absolute bg-transparent left-0 h-full flex items-center justify-center rounded-l-lg text-gray-400 dark:text-light-grey dark:text-gray-300 sm:w-16">
-            <label class="w-4 rounded-l-lg" for="searchInput">
+            <label class="w-4 rounded-l-lg" for="searchInput" title={$searchQuery !== "" ? "Clear search terms." : "Search for jobs."}>
                 <span class="sr-only">Search</span>
-                <svg viewBox="0 0 24 24">
-                    <path d="M17.112 15.059h-1.088l-.377-.377a8.814 8.814 0 002.15-5.784A8.898 8.898 0 008.898 0 8.898 8.898 0 000 8.898a8.898 8.898 0 008.898 8.899c2.211 0 4.23-.808 5.784-2.143l.377.377v1.081l6.845 6.832 2.04-2.04-6.832-6.845zm-8.214 0A6.16 6.16 0 118.9 2.737a6.16 6.16 0 010 12.322z" fill="currentColor" fill-rule="nonzero"/>
+                <svg viewBox="0 0 24 24" class:cursor-pointer={$searchQuery !== ''} on:click|preventDefault={() => $searchQuery = ''}>
+                    {#if $searchQuery === ''}
+                        <path d="M17.112 15.059h-1.088l-.377-.377a8.814 8.814 0 002.15-5.784A8.898 8.898 0 008.898 0 8.898 8.898 0 000 8.898a8.898 8.898 0 008.898 8.899c2.211 0 4.23-.808 5.784-2.143l.377.377v1.081l6.845 6.832 2.04-2.04-6.832-6.845zm-8.214 0A6.16 6.16 0 118.9 2.737a6.16 6.16 0 010 12.322z" fill="currentColor" fill-rule="nonzero"/>
+                    {:else}
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M6 18L18 6M6 6l12 12" stroke="currentColor" />
+                    {/if}
                 </svg>
             </label>
         </div>
@@ -13,7 +17,7 @@
             type="text" 
             name="searchInput" 
             class="w-full h-full rounded-r-lg rounded-l-lg pl-10 pr-12 sm:pl-14 sm:pr-20 placeholder:italic placeholder:text-gray-400 focus:outline-none focus:outline-1 focus:ring-midnight dark:focus:outline-white dark:bg-very-dark-blue dark:text-gray-300 text-sm transition-transform duration-800"
-            placeholder="Search jobs..."
+            placeholder='Search jobs... (Press "Ctrl+m" to focus)'
             bind:value={$searchQuery}
             bind:this={input}
             aria-keyshortcuts="Control+m"
@@ -32,10 +36,10 @@
 </header>
     <p class="mx-auto w-64 text-xs text-gray-500 italic sm:w-3/5 mt-2">Example: Frontend Developer, Blogr, United Kingdom, ...</p>
 <script lang="ts">
-    import { searchQuery } from '../store';
+    import { searchQuery } from '../stores/job';
     import KeyPress from './utils/KeyPress.svelte';
     export let keyPressFocus: string[];
-    let input;
+    let input: HTMLInputElement;
 
     export function focus() {
         input.focus();
