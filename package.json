@@ -7,6 +7,9 @@
     "dev": "rollup -c -w",
     "start": "sirv public --no-clear --single",
     "check": "svelte-check --tsconfig ./tsconfig.json",
+    "css": "npx tailwind -c ./tailwind.config.js -o public/build/styles.css",
+    "css:watch": "npx tailwind -c ./tailwind.config.js -o public/build/styles.css --watch",
+    "prod": "npm run build && npm run css",
     "test": "jest --coverage",
     "test:watch": "jest --watch"
   },

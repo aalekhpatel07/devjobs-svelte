@@ -11,7 +11,7 @@
 <Router>
     <Navbar />
     <main>
-        <Route path="/*jobId" component={Detail} />
+        <Route path="/*jobId" component={Detail} primary={false} />
         <Route path="/" primary={false}>
             <Base />
         </Route>
