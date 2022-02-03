@@ -3,5 +3,5 @@ node_modules
 # public/build
 .idea/
 coverage/
-public/build
+# public/build
 nginx.conf
