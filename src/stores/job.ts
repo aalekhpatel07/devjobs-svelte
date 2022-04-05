@@ -11,7 +11,6 @@ import type { Job } from "../types/job";
 export const meilisearchBaseURL = "/search";
 const meilisearchURL = meilisearchBaseURL + "/indexes/jobs/search";
 
-
 export const searchQuery: Writable<string> = writable("");
 export const searchResults: Readable<Promise<Job[]>> = derived(
   searchQuery,
@@ -49,8 +48,6 @@ export async function search(query: string): Promise<Job[]> {
   const results = await response.json();
   return results.hits;
 }
-
-
 
 export const _job: Job = {
   id: 1,

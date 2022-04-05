@@ -1,112 +1,111 @@
 <!DOCTYPE html>
-<html lang="en" >
-<head>
-	<meta charset='utf-8'>
-	<meta name='viewport' content='width=device-width,initial-scale=1'>
-	<meta name="description" content="Platform for developer job postings.">
-	<meta name="keywords" content="Jobs, Developer, Platform, Search">
-	<meta name="author" content="Aalekh Patel">
-	<meta http-equiv="Access-Control-Allow-Origin" content="*">
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="description" content="Platform for developer job postings." />
+    <meta name="keywords" content="Jobs, Developer, Platform, Search" />
+    <meta name="author" content="Aalekh Patel" />
+    <meta http-equiv="Access-Control-Allow-Origin" content="*" />
 
-	<title>Devjobs</title>
+    <title>Devjobs</title>
 
-	<link rel='icon' type='image/png' href='/favicon.png'>
-	<!-- <link rel='stylesheet' href='/global.css'> -->
-	
-	<link rel='stylesheet' href='/build/bundle.css'>
-	<script defer src='/build/bundle.js'></script>
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <!-- <link rel='stylesheet' href='/global.css'> -->
 
-	<!-- <link rel="stylesheet" href="https://unpkg.com/@themesberg/flowbite@1.3.0/dist/flowbite.min.css"/> -->
-	<script src="https://cdn.tailwindcss.com?plugins=typography,aspect-ratio,line-clamp"></script>
-	<!-- <script src="https://unpkg.com/@themesberg/flowbite@1.3.0/dist/flowbite.bundle.js"></script> -->
-	<script>
-		// TailwindCSS dark mode universal setting.
-		window.onload = () => {
-			// setupThemePreference();
-		}
-		
-		function setupThemePreference() {
+    <link rel="stylesheet" href="/build/bundle.css" />
+    <script defer src="/build/bundle.js"></script>
 
-			// First check if a theme preference set in their system.
-			if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-				document.body.classList.add('dark');
-				localStorage.setItem('theme', 'dark');
-			} else if (window.matchMedia('(prefers-color-scheme: light)').matches) {
-				document.body.classList.add('light');
-				localStorage.setItem('theme', 'light');
+    <!-- <link rel="stylesheet" href="https://unpkg.com/@themesberg/flowbite@1.3.0/dist/flowbite.min.css"/> -->
+    <script src="https://cdn.tailwindcss.com?plugins=typography,aspect-ratio,line-clamp"></script>
+    <!-- <script src="https://unpkg.com/@themesberg/flowbite@1.3.0/dist/flowbite.bundle.js"></script> -->
+    <script>
+      // TailwindCSS dark mode universal setting.
+      window.onload = () => {
+        // setupThemePreference();
+      };
 
-			// If no system-wide preference is set, 
-			// check if a theme preference set in the localStorage.
-			} else if (localStorage.getItem('theme') === 'dark') {
-				document.body.classList.add('dark');
-			} else if (localStorage.getItem('theme') === 'light') {
-				document.body.classList.add('light');
-			}
-			
-			// No particular preference is set. Assign dark mode in that case.
-			else {
-				document.body.classList.add('dark');
-				localStorage.setItem('theme', 'dark');
-			}
-		}
+      function setupThemePreference() {
+        // First check if a theme preference set in their system.
+        if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+          document.body.classList.add("dark");
+          localStorage.setItem("theme", "dark");
+        } else if (window.matchMedia("(prefers-color-scheme: light)").matches) {
+          document.body.classList.add("light");
+          localStorage.setItem("theme", "light");
 
-	</script>
-	<script>
-		tailwind.config = {
-			darkMode: 'class',
-			theme: {
-				extend: {
-					colors: {
-						violet: '#5964e0',
-						'transparent-violet': 'rgba(89,100,224,0.1)',
-						'transparent-violet-dark': 'rgba(89,100,224,0.351)',
-						'very-dark-blue': '#19202d',
-						'light-violet': '#939bf4',
-						midnight: '#121721',
-						white: '#ffffff',
-						'light-grey': '#f4f6f8',
-						grey: '#9daec2',
-						'dark-grey': '#6e8098',
-						debug: {
-							50: '#fff1f2',
-							100: '#ffe4e6',
-							200: '#fecdd3',
-							300: '#dfa4af',
-							400: '#fb7185',
-							500: '#f43f5e',
-							600: '#e11d48',
-							700: '#be123c',
-							800: '#9f1239',
-							900: '#881337'
-						}
-					},
-					fontFamily: {
-						sans: ['Kumbh Sans', 'sans-serif'],
-					},
-					lineHeight: {
-						'h1': '2.125rem',
-						'h2': '1.8125rem',
-						'h3': '1.5rem',
-						'h4': '1.125rem',
-						'body': '1.625rem',
-					},
-					fontSize: {
-						'h1': '1.75rem',
-						'h2': '1.5rem',
-						'h3': '1.25rem',
-						'h4': '0.875rem',
-						'body': '1rem',
-					},
-					backgroundImage: {
-						'pattern-header-desktop': 'url("./assets/home/bg-pattern-header-desktop.svg")',
-						'pattern-header-mobile': 'url("./assets/home/bg-pattern-header-mobile.svg")',
-					}
-				}
-			}
-		}
-	</script>
-</head>
+          // If no system-wide preference is set,
+          // check if a theme preference set in the localStorage.
+        } else if (localStorage.getItem("theme") === "dark") {
+          document.body.classList.add("dark");
+        } else if (localStorage.getItem("theme") === "light") {
+          document.body.classList.add("light");
+        }
 
-<body class="bg-light-grey dark:bg-midnight duration-200">
-</body>
+        // No particular preference is set. Assign dark mode in that case.
+        else {
+          document.body.classList.add("dark");
+          localStorage.setItem("theme", "dark");
+        }
+      }
+    </script>
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              violet: "#5964e0",
+              "transparent-violet": "rgba(89,100,224,0.1)",
+              "transparent-violet-dark": "rgba(89,100,224,0.351)",
+              "very-dark-blue": "#19202d",
+              "light-violet": "#939bf4",
+              midnight: "#121721",
+              white: "#ffffff",
+              "light-grey": "#f4f6f8",
+              grey: "#9daec2",
+              "dark-grey": "#6e8098",
+              debug: {
+                50: "#fff1f2",
+                100: "#ffe4e6",
+                200: "#fecdd3",
+                300: "#dfa4af",
+                400: "#fb7185",
+                500: "#f43f5e",
+                600: "#e11d48",
+                700: "#be123c",
+                800: "#9f1239",
+                900: "#881337",
+              },
+            },
+            fontFamily: {
+              sans: ["Kumbh Sans", "sans-serif"],
+            },
+            lineHeight: {
+              h1: "2.125rem",
+              h2: "1.8125rem",
+              h3: "1.5rem",
+              h4: "1.125rem",
+              body: "1.625rem",
+            },
+            fontSize: {
+              h1: "1.75rem",
+              h2: "1.5rem",
+              h3: "1.25rem",
+              h4: "0.875rem",
+              body: "1rem",
+            },
+            backgroundImage: {
+              "pattern-header-desktop":
+                'url("./assets/home/bg-pattern-header-desktop.svg")',
+              "pattern-header-mobile":
+                'url("./assets/home/bg-pattern-header-mobile.svg")',
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+
+  <body class="bg-light-grey dark:bg-midnight duration-200"></body>
 </html>
